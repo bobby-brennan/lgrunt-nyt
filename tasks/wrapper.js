@@ -13,7 +13,8 @@ module.exports = function (grunt) {
     var config = grunt.config.get('nyt_wrapper');
     console.log('conf:' + JSON.stringify(config));
     config.swagger = grunt.file.readJSON(__dirname + '/../swagger/swagger.json');
-    grunt.loadNpmTasks('lucy-rest-api-client');
+    console.log('in dir:' + __dirname);
+    grunt.file.expand(__dirname + '/../node_modules/lucy-rest-api-client/tasks').forEach(function(inpt) {console.log('tsk:' + inpt); grunt.loadTasks(inpt)});
     grunt.config('rest_api_client', {default_config: config});
     grunt.task.run('rest_api_client');
   });
