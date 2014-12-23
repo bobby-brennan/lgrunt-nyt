@@ -17,7 +17,7 @@ module.exports = function (grunt) {
     console.log('swag:' + JSON.stringify(config.swagger));
     console.log('in dir:' + __dirname);
     grunt.file.expand(__dirname + '/../node_modules/lucy-rest-api-client/tasks').forEach(function(inpt) {console.log('tsk:' + inpt); grunt.loadTasks(inpt)});
-    grunt.config('rest_api_client', config);
+    grunt.config('rest_api_client', {default_config: config});
     grunt.task.run('rest_api_client');
   });
 }
