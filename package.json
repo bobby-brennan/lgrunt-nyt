@@ -1,0 +1,22 @@
+{
+  "name": "lgrunt-nyt",
+  "version": "0.0.0",
+  "description": "lgrunt-nyt ==========",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bobby-brennan/lgrunt-nyt.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bobby-brennan/lgrunt-nyt/issues"
+  },
+  "homepage": "https://github.com/bobby-brennan/lgrunt-nyt",
+  "dependencies": {
+    "lucy-rest-api-client": "0.0.1"
+  }
+}

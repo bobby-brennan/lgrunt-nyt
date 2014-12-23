@@ -1,0 +1,128 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "NYT API",
+        "description": "Move your app forward with the Uber API",
+        "version": "1.0.0"
+    },
+    "host": "api.nytimes.com",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/svc/search/v2",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/articlesearch.json": {
+            "get": {
+                "operationId": "articleSearch",
+                "summary": "Article Search",
+                "description": "Returns a list of tweets that match the query\n",
+                "parameters": [
+                    {
+                        "name": "q",
+                        "in": "query",
+                        "description": "query to search",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "api-key",
+                        "in": "query",
+                        "description": "Developer key",
+                        "type": "string"
+                    },
+                    {
+                        "name": "begin_date",
+                        "in": "query",
+                        "description": "Begin date",
+                        "type": "string"
+                    },
+                    {
+                        "name": "end_date",
+                        "in": "query",
+                        "description": "End date",
+                        "type": "string"
+                    },
+                    {
+                        "name": "sort",
+                        "in": "query",
+                        "description": "Sort order",
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Tweets"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "An array of tweets",
+                        "schema": {
+                            "type": "object",
+                            "propterties": {
+                                "response": {
+                                    "type": "object",
+                                    "properties": {
+                                        "docs": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#definitions/Articles"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Articles": {
+            "properties": {
+                "web_url": {
+                    "type": "string"
+                }
+            }
+        },
+        "Tweet": {
+            "properties": {
+                "text": {
+                    "type": "string"
+                },
+                "user": {
+                    "$ref": "#/definitions/User"
+                }
+            }
+        },
+        "User": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                }
+            }
+        },
+        "Error": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
