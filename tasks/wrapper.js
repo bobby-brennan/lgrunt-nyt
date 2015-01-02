@@ -33,7 +33,7 @@ module.exports = function (grunt) {
     try {
       FS.mkdirSync('views');
     } catch (e) {}
-    FS.createReadStream(__dirname + '/partials/article-list.ejs').pipe(FS.createWriteStream('views/article-list.ejs'))
+    FS.createReadStream(__dirname + '/../partials/article-list.ejs').pipe(FS.createWriteStream('views/article-list.ejs'))
 
     grunt.file.expand(__dirname + '/../node_modules/lucy-rest-api-client/tasks').forEach(function(inpt) {console.log('tsk:' + inpt); grunt.loadTasks(inpt)});
     grunt.config('rest_api_client', {default_config: config});
