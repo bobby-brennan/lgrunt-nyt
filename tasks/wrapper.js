@@ -17,6 +17,7 @@ function camelCase(input) {
 }
 
 module.exports = function (grunt) {
+  var FS = require('fs');
   grunt.registerTask('nyt_wrapper', 'A grunt plugin for generating wrappers the NYTimes API', function () {
     var config = grunt.config.get('nyt_wrapper');
     config.swagger = grunt.file.readJSON(__dirname + '/../swagger/swagger.json');
