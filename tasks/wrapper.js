@@ -26,6 +26,8 @@ module.exports = function (grunt) {
       config.functions[i].functionName = camelCase(config.functions[i].alias);
     }
 
+    config.secrets = ["apiKey"];
+
     config.uiComponents = {
       'articleSearch': { type: 'ejs', file: 'views/article-list.ejs' }
     }
