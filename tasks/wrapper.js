@@ -29,14 +29,15 @@ module.exports = function (grunt) {
     config.secrets = ["apiKey"];
 
     config.uiComponents = {
-      'articleSearch': { type: 'ejs', file: 'views/article-list.ejs' }
+      'articleSearch': { type: 'ejs', file: 'views/article-list.ejs' },
+      'secretsPage': 'views/secrets.ejs'
     }
 
     try {
       FS.mkdirSync('views');
     } catch (e) {}
     FS.createReadStream(__dirname + '/../partials/article-list.ejs').pipe(FS.createWriteStream('views/article-list.ejs'))
-
+    FS.createReadStream(__dirname + '/../partials/secrets.ejs').pipe(FS.createWriteStream('views/secrets.ejs'))
     grunt.file.expand(__dirname + '/../node_modules/lucy-rest-api-client/tasks').forEach(function(inpt) {console.log('tsk:' + inpt); grunt.loadTasks(inpt)});
     grunt.config('rest_api_client', {default_config: config});
     grunt.task.run('rest_api_client');
