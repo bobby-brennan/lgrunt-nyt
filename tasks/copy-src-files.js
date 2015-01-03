@@ -8,7 +8,8 @@ module.exports.copy = function(grunt) {
       if (grunt.file.isDir(file)) {
         Mkdirp.sync(outfile);
       } else {
-        FS.createReadStream(file).pipe(FS.createWriteStream(outfile));
+        var contents = FS.readFileSync(file);
+        FS.writeFileSync(outfile, contents);
       }
     })
 }

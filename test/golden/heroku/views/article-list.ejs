@@ -1,0 +1,15 @@
+<html>
+<head>
+  <title>NY Times</title>
+</head>
+<body>
+  <% var articles = response.docs %>
+  <% console.log('arts:' + articles.length) %>
+  <% for (var i = 0; i < articles.length; ++i) { %>
+  <div>
+    <a href="<%- articles[i].web_url %>"><%- articles[i].headline.main %></a>
+  </div>
+  <% } %>
+  <script src="bower/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

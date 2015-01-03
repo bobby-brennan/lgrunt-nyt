@@ -39,7 +39,7 @@ App.get('/', function(req, res) {
 
 
 App.get('/sortByOldest', function(req, res) {
-  NYTimes.sortByOldest(req.query.q, req.query.apiKey, function(err, result) {
+  NYTimes.sortByOldest(req.query.q, function(err, result) {
     if (err) {
       console.log('err:' + JSON.stringify(err));
       throw err;

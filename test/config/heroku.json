@@ -9,8 +9,7 @@
     "operationId": "articleSearch",
     "alias": "Sort By Oldest",
     "variables": {
-      "q": "query",
-      "apiKey": "apiKey"
+      "q": "query"
     },
     "constants": {
       "sort": "oldest"

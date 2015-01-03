@@ -8,9 +8,16 @@
 
 'use strict';
 module.exports = function (grunt) {
+  var Mkdirp = require('mkdirp');
   var FS = require('fs');
+
   grunt.registerTask('nyt_wrapper', 'A grunt plugin for generating wrappers the NYTimes API', function () {
     var config = grunt.config.get('nyt_wrapper');
+    if (config.destDir) {
+      Mkdirp.sync(config.destDir);
+      process.chdir(config.destDir);
+      config.destDir = null;
+    }
     config.swagger = grunt.file.readJSON(__dirname + '/../swagger/swagger.json');
 
     config.secrets = ["apiKey"];
@@ -27,11 +34,8 @@ module.exports = function (grunt) {
       }
     };
 
-    try {
-      FS.mkdirSync('views');
-    } catch (e) {}
-    FS.createReadStream(__dirname + '/../partials/article-list.ejs').pipe(FS.createWriteStream('views/article-list.ejs'))
-    FS.createReadStream(__dirname + '/../partials/secrets.ejs').pipe(FS.createWriteStream('views/secrets.ejs'))
+    require('./copy-src-files.js').copy(grunt);
+
     grunt.file.expand(__dirname + '/../node_modules/lucy-rest-api-client/tasks').forEach(function(inpt) {console.log('tsk:' + inpt); grunt.loadTasks(inpt)});
     grunt.config('rest_api_client', {default_config: config});
     grunt.task.run('rest_api_client');
