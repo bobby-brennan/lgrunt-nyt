@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>NY Times</title>
+  <title>NY Times</title>
 </head>
 <body>
   <% var articles = response.docs %>
@@ -10,5 +10,6 @@
     <a href="<%- articles[i].web_url %>"><%- articles[i].headline.main %></a>
   </div>
   <% } %>
+  <script src="bower/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

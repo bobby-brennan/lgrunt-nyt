@@ -7,24 +7,11 @@
  */
 
 'use strict';
-
-function camelCase(input) {
-  var ret = input.replace(/([A-Z]{2})/g, function(m, g) {return g.toLowerCase()})
-         .replace(/^([\w])/, function(m, g) {return g.toLowerCase()})
-         .replace(/[^\w\s-]/g, '')
-         .replace(/[-\s]+(.)/g, function(match, group1) {return group1.toUpperCase()});
-  return ret;
-}
-
 module.exports = function (grunt) {
   var FS = require('fs');
   grunt.registerTask('nyt_wrapper', 'A grunt plugin for generating wrappers the NYTimes API', function () {
     var config = grunt.config.get('nyt_wrapper');
     config.swagger = grunt.file.readJSON(__dirname + '/../swagger/swagger.json');
-
-    for (var i = 0; i < config.functions.length; ++i) {
-      config.functions[i].functionName = camelCase(config.functions[i].alias);
-    }
 
     config.secrets = ["apiKey"];
 
@@ -32,6 +19,13 @@ module.exports = function (grunt) {
       'articleSearch': { type: 'ejs', file: 'views/article-list.ejs' },
       'secretsPage': 'views/secrets.ejs'
     }
+
+    config.dependencies = {
+      bower: {
+        "bootstrap": "~3.3.1",
+        "angular": "~1.3.7"
+      }
+    };
 
     try {
       FS.mkdirSync('views');

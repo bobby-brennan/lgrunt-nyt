@@ -1,0 +1,29 @@
+{
+  "name": "nytimes-api-demo",
+  "version": "0.1.2",
+  "description": "A demo of the New York Times API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "~4.9.x",
+    "q": "^1.1.2",
+    "request": "^2.51.0",
+    "body-parser": "^1.10.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/fake-user/some-repo"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}

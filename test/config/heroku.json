@@ -1,0 +1,24 @@
+{
+  "clientFile": "nyt-swag.js",
+  "wrapperFile": "nyt-wrap.js",
+  "clientName": "NYTimes",
+  "lucyDir": "lucy/",
+  "destDir": "test/golden/heroku/",
+  "repo": "http://github.com/fake-user/some-repo",
+  "functions": [{
+    "operationId": "articleSearch",
+    "alias": "Sort By Oldest",
+    "variables": {
+      "q": "query",
+      "apiKey": "apiKey"
+    },
+    "constants": {
+      "sort": "oldest"
+    }
+  }],
+  "heroku": {
+    "appName": "NYTimes API Demo",
+    "appDescription": "A demo of the New York Times API",
+    "nodeName": "nytimes-api-demo"
+  }
+}
