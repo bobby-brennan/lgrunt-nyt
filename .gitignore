@@ -1,3 +1,4 @@
 node_modules/
 test/golden/**/node_modules/
 test/golden/**/static/bower/
+test/golden/**/npm-debug.log
