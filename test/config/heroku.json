@@ -8,11 +8,8 @@
   "functions": [{
     "operationId": "articleSearch",
     "alias": "Sort By Oldest",
-    "variables": {
-      "q": "query"
-    },
     "constants": {
-      "sort": "oldest"
+      "q": "Obama"
     }
   }],
   "heroku": {

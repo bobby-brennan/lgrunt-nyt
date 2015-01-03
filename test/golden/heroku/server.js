@@ -39,13 +39,12 @@ App.get('/', function(req, res) {
 
 
 App.get('/sortByOldest', function(req, res) {
-  NYTimes.sortByOldest(req.query.q, function(err, result) {
+  NYTimes.sortByOldest(function(err, result) {
     if (err) {
       console.log('err:' + JSON.stringify(err));
       throw err;
     }
     res.render('views/article-list.ejs', result);
-    res.end();
   });
 })
 
