@@ -11,7 +11,8 @@
     "express": "~4.9.x",
     "q": "^1.1.2",
     "request": "^2.51.0",
-    "body-parser": "^1.10.0"
+    "body-parser": "^1.10.0",
+    "bower": "~1.3.0"
   },
   "engines": {
     "node": "0.10.x"
@@ -25,5 +26,8 @@
     "heroku",
     "express"
   ],
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
   "license": "MIT"
 }
