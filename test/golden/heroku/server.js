@@ -30,17 +30,17 @@ App.post('/setSecrets', function(req, res) {
 });
 
 App.get('/', function(req, res) {
-  res.redirect('/sortByOldest');
+  res.redirect('/sort-by-oldest.html');
 });
 
 
 App.get('/sortByOldest', function(req, res) {
   NYTimes.sortByOldest(function(err, result) {
     if (err) {
-      console.log('err:' + JSON.stringify(err));
+      console.log('Error:' + JSON.stringify(err));
       throw err;
     }
-    res.render('views/article-list.ejs', result);
+    res.send(JSON.stringify(result));
   });
 })
 

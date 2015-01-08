@@ -16,8 +16,8 @@ module.exports.API = function(domain) {
      * @method
      * @name API#articleSearch
      * @param {{string}} q - query to search
-     * @param {{string}} apiKey - Developer key
      * @param {{string}} begin_date - Begin date
+     * @param {{string}} apiKey - Api Key
      * @param {{string}} end_date - End date
      * @param {{string}} sort - Sort order
      * 
@@ -44,12 +44,12 @@ module.exports.API = function(domain) {
             return deferred.promise;
         }
 
-        if (parameters['apiKey'] !== undefined) {
-            queryParameters['api-key'] = parameters['apiKey'];
-        }
-
         if (parameters['begin_date'] !== undefined) {
             queryParameters['begin_date'] = parameters['begin_date'];
+        }
+
+        if (parameters['apiKey'] !== undefined) {
+            queryParameters['api-key'] = parameters['apiKey'];
         }
 
         if (parameters['end_date'] !== undefined) {

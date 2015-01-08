@@ -15,6 +15,11 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
      nyt_wrapper: grunt.file.readJSON('test/config/heroku.json'),
+     jsonlint: {
+       sample: {
+         src: [ 'swagger/swagger.json' ]
+       }
+     }
   });
 
   // Actually load this plugin's task(s).

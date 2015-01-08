@@ -28,16 +28,17 @@
                         "type": "string"
                     },
                     {
-                        "name": "api-key",
-                        "in": "query",
-                        "description": "Developer key",
-                        "type": "string"
-                    },
-                    {
                         "name": "begin_date",
                         "in": "query",
                         "description": "Begin date",
                         "type": "string"
+                    },
+                    {
+                        "name": "api-key",
+                        "in": "query",
+                        "description": "Api Key",
+                        "type": "string",
+                        "secret": true
                     },
                     {
                         "name": "end_date",
@@ -52,12 +53,9 @@
                         "type": "string"
                     }
                 ],
-                "tags": [
-                    "Tweets"
-                ],
                 "responses": {
                     "200": {
-                        "description": "An array of tweets",
+                        "description": "An array of articles",
                         "schema": {
                             "type": "object",
                             "propterties": {
@@ -67,7 +65,7 @@
                                         "docs": {
                                             "type": "array",
                                             "items": {
-                                                "$ref": "#definitions/Articles"
+                                                "$ref": "#definitions/Article"
                                             }
                                         }
                                     }
@@ -86,28 +84,31 @@
         }
     },
     "definitions": {
-        "Articles": {
+        "Article": {
             "properties": {
-                "web_url": {
-                    "type": "string"
-                }
-            }
-        },
-        "Tweet": {
-            "properties": {
-                "text": {
-                    "type": "string"
+                "web_url": {"type": "string"},
+                "snippet": {"type": "string"},
+                "lead_paragraph": {"type": "string"},
+                "multimedia": {
+                    "type": "array",
+                    "items": {"$ref": "#definitions/Multimedia"}
                 },
-                "user": {
-                    "$ref": "#/definitions/User"
+                "headline": {
+                    "type": "object",
+                    "properties": {
+                       "main": {"type": "string"},
+                       "print_headline": {"type": "string"}
+                    }
                 }
             }
         },
-        "User": {
+        "Multimedia": {
             "properties": {
-                "name": {
-                    "type": "string"
-                }
+                "width": {"type": "integer"},
+                "height": {"type": "integer"},
+                "url": {"type": "string"},
+                "type": {"type": "string"},
+                "subtype": {"type": "string"}
             }
         },
         "Error": {

@@ -22,17 +22,13 @@ module.exports = function (grunt) {
 
     config.secrets = ["apiKey"];
 
-    config.uiComponents = {
-      'articleSearch': { type: 'ejs', file: 'views/article-list.ejs' },
-      'secretsPage': 'views/secrets.ejs'
+    config.ui = {
+       components: {
+        'articleSearch': { type: 'angular', file: 'article-list.html' },
+       },
+       pageHeader: 'header.html',
+       pageFooter: 'footer.html'
     }
-
-    config.dependencies = {
-      bower: {
-        "bootstrap": "~3.3.1",
-        "angular": "~1.3.7"
-      }
-    };
 
     require('./copy-src-files.js').copy(grunt);
 
