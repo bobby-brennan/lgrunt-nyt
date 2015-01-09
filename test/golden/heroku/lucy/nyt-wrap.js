@@ -1,9 +1,11 @@
 var Client = require('./nyt-swag.js');
 Client.API('http://api.nytimes.com');
 
-exports.sortByOldest = function(callback) {
+exports.search = function(query, sort, page, callback) {
   var params = {
-    'q': 'Obama',
+    'q': query,
+    'sort': sort,
+    'page': page,
   };
   if (exports.Secrets) {
     for (var secret in exports.Secrets) {

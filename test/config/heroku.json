@@ -7,9 +7,11 @@
   "repo": "http://github.com/fake-user/some-repo",
   "functions": [{
     "operationId": "articleSearch",
-    "alias": "Sort By Oldest",
-    "constants": {
-      "q": "Obama"
+    "alias": "Search",
+    "variables": {
+      "q": "query",
+      "sort": "sort",
+      "page": "page"
     }
   }],
   "heroku": {

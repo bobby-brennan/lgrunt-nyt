@@ -28,6 +28,15 @@
                         "type": "string"
                     },
                     {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page, starting with 0",
+                        "type": "integer",
+                        "style": {
+                          "type": "pagination"
+                        }
+                    },
+                    {
                         "name": "begin_date",
                         "in": "query",
                         "description": "Begin date",

@@ -30,16 +30,19 @@ App.post('/setSecrets', function(req, res) {
 });
 
 App.get('/', function(req, res) {
-  res.redirect('/sort-by-oldest.html');
+  res.redirect('/search.html');
 });
 
 
-App.get('/sortByOldest', function(req, res) {
-  NYTimes.sortByOldest(function(err, result) {
+App.post('/search', function(req, res) {
+  console.log('request' + JSON.stringify(req.body));
+  NYTimes.search(req.body.q, req.body.sort, req.body.page, function(err, result) {
     if (err) {
       console.log('Error:' + JSON.stringify(err));
-      throw err;
+      res.statusCode(401);
+      return res.end();
     }
+    console.log('got data, returning');
     res.send(JSON.stringify(result));
   });
 })

@@ -16,6 +16,7 @@ module.exports.API = function(domain) {
      * @method
      * @name API#articleSearch
      * @param {{string}} q - query to search
+     * @param {{integer}} page - Page, starting with 0
      * @param {{string}} begin_date - Begin date
      * @param {{string}} apiKey - Api Key
      * @param {{string}} end_date - End date
@@ -42,6 +43,10 @@ module.exports.API = function(domain) {
         if (parameters['q'] === undefined) {
             deferred.reject(new Error('Missing required  parameter: q'));
             return deferred.promise;
+        }
+
+        if (parameters['page'] !== undefined) {
+            queryParameters['page'] = parameters['page'];
         }
 
         if (parameters['begin_date'] !== undefined) {
