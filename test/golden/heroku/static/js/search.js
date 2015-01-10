@@ -15,7 +15,6 @@ app.controller('searchController', function($scope) {
     })
     .done(function(data) {
       $scope.result = JSON.parse(data);
-      console.log('data:' + JSON.stringify($scope.result.response.docs[0]));
       $scope.$apply();
     })
     .fail(function(err) {

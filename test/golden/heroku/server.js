@@ -14,19 +14,23 @@ App.use(BodyParser.urlencoded({
 }));
 
 App.get('/', function(req, res, next) {
-  if (!NYTimes.Secrets) {
-    res.redirect('secrets.html');
+  console.log('star');
+  if (!NYTimes.initialized()) {
+    console.log('redir');
+    res.redirect('/secrets.html');
   } else {
     next();
   }
 });
 
 App.post('/setSecrets', function(req, res) {
-  if (!NYTimes.Secrets) {
-    NYTimes.Secrets = {};
-    NYTimes.Secrets.apiKey = req.body.apiKey
+  if (!NYTimes.initialized()) {
+    NYTimes.initialize(req.body, function() {
+      res.redirect('/');
+    });
+  } else {
+    res.redirect('/');
   }
-  res.redirect('/');
 });
 
 App.get('/', function(req, res) {
@@ -42,7 +46,7 @@ App.post('/search', function(req, res) {
       res.statusCode(401);
       return res.end();
     }
-    console.log('got data, returning');
+    console.log('got data, returning:' + JSON.stringify(result));
     res.send(JSON.stringify(result));
   });
 })

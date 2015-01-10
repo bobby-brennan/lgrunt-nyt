@@ -20,11 +20,14 @@ module.exports = function (grunt) {
     }
     config.swagger = grunt.file.readJSON(__dirname + '/../swagger/swagger.json');
 
-    config.secrets = ["apiKey"];
+    config.secrets = {
+      keyPage: "http://kmc.kaltura.com/index.php/kmc/kmc4#account|overview",
+      keys: {'apiKey': 'API Key'}
+    }
 
     config.ui = {
        components: {
-        'articleSearch': { type: 'angular', file: 'article-list.html' },
+        'articleSearch': { type: 'angular', file: 'article-list.html', jsImports: ['js/article-list.js'] },
        },
        pageHeader: 'header.html',
        pageFooter: 'footer.html'
