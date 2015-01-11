@@ -16,8 +16,7 @@ exports.initialized = function() {
 
 exports.search = function(query, sort, page, callback) {
   var params = {
-    'q': 'obama',
-    'q': query,
+    'q': query || "obama",
     'sort': sort,
     'page': page,
   };
