@@ -1,9 +1,9 @@
 console.log('set ctrler');
 app.controller('searchController', function($scope) {
   console.log('controller loading');
-  $scope.inputs = {
-    page: 0
-  };
+  $scope.inputs =
+      {"q":"obama"}
+  $scope.inputs.page = 0;
   $scope.loadData = function(inputs) {
     console.log('loading data:' + JSON.stringify(inputs));
     $.ajax({

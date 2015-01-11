@@ -16,6 +16,7 @@ exports.initialized = function() {
 
 exports.search = function(query, sort, page, callback) {
   var params = {
+    'q': 'obama',
     'q': query,
     'sort': sort,
     'page': page,

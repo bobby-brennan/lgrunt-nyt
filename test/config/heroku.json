@@ -13,7 +13,9 @@
       "sort": "sort",
       "page": "page"
     },
-    "constants": {}
+    "constants": {
+      "q": "obama"
+    }
   }],
   "heroku": {
     "appName": "NYTimes API Demo",
