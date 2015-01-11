@@ -15,7 +15,7 @@ App.use(BodyParser.urlencoded({
 
 App.get('/', function(req, res, next) {
   if (!NYTimes.initialized()) {
-    res.redirect('/secrets.html');
+    res.redirect('/initialize.html');
   } else {
     next();
   }

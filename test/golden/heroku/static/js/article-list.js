@@ -7,12 +7,6 @@ var SUBTYPE_PREFERENCE = [
 ]
 
 app.controller("ArticleListController", ['$scope', '$window', function($scope, $window) {
-  $scope.unescape = function(str) {
-    console.log('un:' + str);
-    var ret = $window.unescape(str);
-    console.log('ret:' + ret);
-    return str;
-  }
   $scope.getBestImage = function(multimedia) {
     var ret = multimedia.filter(function(d) {
       return d.type === 'image';
