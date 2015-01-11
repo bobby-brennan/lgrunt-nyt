@@ -21,7 +21,7 @@ module.exports = function (grunt) {
     config.swagger = grunt.file.readJSON(__dirname + '/../swagger/swagger.json');
 
     config.secrets = {
-      keyPage: "http://kmc.kaltura.com/index.php/kmc/kmc4#account|overview",
+      keyPage: "http://developer.nytimes.com/apps/mykeys",
       keys: {'apiKey': 'API Key'}
     }
 
