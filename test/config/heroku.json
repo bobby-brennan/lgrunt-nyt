@@ -12,7 +12,8 @@
       "q": "query",
       "sort": "sort",
       "page": "page"
-    }
+    },
+    "constants": {}
   }],
   "heroku": {
     "appName": "NYTimes API Demo",

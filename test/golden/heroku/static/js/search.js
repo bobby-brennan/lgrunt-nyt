@@ -2,7 +2,6 @@ console.log('set ctrler');
 app.controller('searchController', function($scope) {
   console.log('controller loading');
   $scope.inputs = {
-    q: 'obama',
     page: 0
   };
   $scope.loadData = function(inputs) {

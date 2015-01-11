@@ -14,9 +14,7 @@ App.use(BodyParser.urlencoded({
 }));
 
 App.get('/', function(req, res, next) {
-  console.log('star');
   if (!NYTimes.initialized()) {
-    console.log('redir');
     res.redirect('/secrets.html');
   } else {
     next();
@@ -39,14 +37,12 @@ App.get('/', function(req, res) {
 
 
 App.post('/search', function(req, res) {
-  console.log('request' + JSON.stringify(req.body));
   NYTimes.search(req.body.q, req.body.sort, req.body.page, function(err, result) {
     if (err) {
       console.log('Error:' + JSON.stringify(err));
       res.statusCode(401);
       return res.end();
     }
-    console.log('got data, returning:' + JSON.stringify(result));
     res.send(JSON.stringify(result));
   });
 })

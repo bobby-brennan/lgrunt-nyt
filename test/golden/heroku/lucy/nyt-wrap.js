@@ -3,9 +3,7 @@ Client.API('http://api.nytimes.com');
 
 var Secrets = null;
 exports.initialize = function(secrets, callback) {
-  console.log('init client1');
   if (Client.initialize) {
-    console.log('init client');
     Client.initialize(secrets, callback);
   } else {
     Secrets = secrets;
