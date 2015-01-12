@@ -35,12 +35,11 @@ App.get('/', function(req, res) {
   res.redirect('/search.html');
 });
 
-
 App.post('/search', function(req, res) {
   NYTimes.search(req.body.q, req.body.sort, req.body.page, function(err, result) {
     if (err) {
       console.log('Error:' + JSON.stringify(err));
-      res.statusCode(401);
+      res.status(401);
       return res.end();
     }
     res.send(JSON.stringify(result));

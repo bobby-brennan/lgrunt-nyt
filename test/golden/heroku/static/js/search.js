@@ -2,7 +2,7 @@ app.controller('searchController', function($scope) {
   $scope.inputs =
       {"q":"obama"}
   $scope.inputs.page = 0;
-  $scope.loadData = function(inputs) {
+    $scope.search = function(inputs) {
     $.ajax({
       url: 'search',
       type: 'post',
@@ -17,7 +17,7 @@ app.controller('searchController', function($scope) {
        console.log('Error loading data:' + JSON.stringify(err));
     })
   }
-
+  
   $scope.getPages = function() {
     var page = $scope.inputs.page;
     var pages = [1, 2, 3, 4, 5];
