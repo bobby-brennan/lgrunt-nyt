@@ -27,10 +27,11 @@ module.exports = function (grunt) {
 
     config.ui = {
        components: {
-        'articleSearch': { type: 'angular', file: 'article-list.html', jsImports: ['js/article-list.js'] },
+        'articleSearch': { type: 'angular', file: 'article-list.html' }
        },
        pageHeader: 'header.html',
-       pageFooter: 'footer.html'
+       pageFooter: 'footer.html',
+       jsImports: ['js/article-list.js']
     }
 
     require('./copy-src-files.js').copy(grunt);

@@ -1,17 +1,20 @@
 app.controller('searchController', function($scope) {
+  if (!$scope.inputs) {
   $scope.inputs =
       {"q":"obama"}
+  }
   $scope.inputs.page = 0;
-    $scope.search = function(inputs) {
+  $scope.articleSearch = function(cb) {
     $.ajax({
-      url: 'search',
+      url: 'search_articleSearch',
       type: 'post',
       contentType: "application/json; charset=utf-8",      
-      data: JSON.stringify(inputs)
+      data: JSON.stringify($scope.inputs)
     })
     .done(function(data) {
       $scope.result = JSON.parse(data);
       $scope.$apply();
+      if (cb) cb($scope.result);
     })
     .fail(function(err) {
        console.log('Error loading data:' + JSON.stringify(err));
@@ -28,3 +31,4 @@ app.controller('searchController', function($scope) {
     }
   }
 })
+

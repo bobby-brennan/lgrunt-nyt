@@ -14,7 +14,7 @@ exports.initialized = function() {
   return Client.initialize ? Client.initialized() : Secrets !== null;
 }
 
-exports.search = function(query, sort, page, callback) {
+exports.search_articleSearch = function(query, sort, page, callback) {
   var params = {
     'q': query || "obama",
     'sort': sort,

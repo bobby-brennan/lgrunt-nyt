@@ -32,11 +32,11 @@ App.post('/setSecrets', function(req, res) {
 });
 
 App.get('/', function(req, res) {
-  res.redirect('/search.html');
+  res.redirect('/search-main.html');
 });
 
-App.post('/search', function(req, res) {
-  NYTimes.search(req.body.q, req.body.sort, req.body.page, function(err, result) {
+App.post('/search_articleSearch', function(req, res) {
+  NYTimes.search_articleSearch(req.body.q, req.body.sort, req.body.page, function(err, result) {
     if (err) {
       console.log('Error:' + JSON.stringify(err));
       res.status(401);
