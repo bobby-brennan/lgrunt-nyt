@@ -1,7 +1,11 @@
 app.controller('searchController', function($scope) {
-  if (!$scope.inputs) {
   $scope.inputs =
       {"q":"obama"}
+  $scope.showInputs = false;
+  $scope.showTheInputs = function() {
+    console.log('sti');
+    $scope.showInputs = true;
+    $scope.$apply();
   }
   $scope.inputs.page = 0;
   $scope.articleSearch = function(cb) {
